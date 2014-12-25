@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resource :profile, only: :show
-    resources :statuses, only: [:new, :create]
+    resources :statuses, only: [:create]
   end
 end
