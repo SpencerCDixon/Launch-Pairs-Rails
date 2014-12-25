@@ -6,6 +6,4 @@ Rails.application.routes.draw do
     resource :profile, only: :show
     resources :statuses, only: [:new, :create]
   end
-
-
 end

@@ -9,11 +9,11 @@ feature 'User can update their status for other people to see' do
 
     expect(page).to have_content("Sleeping")
 
-    select "In The Zone", from: "Status"
+    select "In The Zone", from: "Description"
     click_on "Update status"
 
     expect(page).to_not have_content("Sleeping")
-    expect(page).to have_content("Working on Rails")
+    expect(page).to have_content("In The Zone")
   end
 end
 

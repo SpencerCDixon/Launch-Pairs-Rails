@@ -6,8 +6,11 @@ class User < ActiveRecord::Base
   has_many :statuses
 
   def current_status
-    binding.pry
-    status.last || "Sleeping"
+    if !statuses.empty?
+      statuses.last.description 
+    else
+     "Sleeping"
+    end
   end
 end
 
