@@ -1,1 +1,10 @@
 <h1><%= @user.first_name %>'s Profile</h1>
+
+<h2>Status: <%= @user.current_status %> </h2>
+
+<%= form_for [@user, @status] do |f| %>
+  <%= f.label :description %>
+  <%= f.select :description, ["Open To Help", "In The Zone", "Looking To Pair"] %>
+
+  <%= f.submit "Update status" %>
+<% end -%>
