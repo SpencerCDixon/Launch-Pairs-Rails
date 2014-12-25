@@ -13,7 +13,6 @@ feature 'Home page displays all users' do
 
   scenario 'unauthorized user gets redirected to sign in page' do
     visit root_path
-
     expect(page).to have_content("Log in")
   end
 end

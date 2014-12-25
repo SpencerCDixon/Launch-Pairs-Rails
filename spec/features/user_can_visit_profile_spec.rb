@@ -10,7 +10,7 @@ feature 'User can visit their profile' do
     expect(page).to have_content("#{user.first_name}'s Profile")
   end
 
-  scenario 'unauth user sees the users name' do
+  scenario 'unauth user gets asked to log in' do
     visit user_profile_path(user)
 
     expect(page).to have_content("Log in")

@@ -15,5 +15,20 @@ feature 'User can update their status for other people to see' do
     expect(page).to_not have_content("Sleeping")
     expect(page).to have_content("In The Zone")
   end
+
+  scenario 'status gets updated on home page' do
+    user = FactoryGirl.create(:user)
+    sign_in_as(user)
+
+    visit user_profile_path(user)
+
+    expect(page).to have_content("Sleeping")
+
+    select "In The Zone", from: "Description"
+    click_on "Update status"
+
+    visit root_path
+    expect(page).to have_content("In The Zone")
+  end
 end
 
