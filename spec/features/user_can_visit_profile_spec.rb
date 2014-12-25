@@ -13,6 +13,6 @@ feature 'User can visit their profile' do
   scenario 'unauth user sees the users name' do
     visit user_profile_path(user)
 
-    expect(page).to have_content("Launch Pairs")
+    expect(page).to have_content("Log in")
   end
 end
