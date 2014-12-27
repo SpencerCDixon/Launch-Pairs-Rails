@@ -5,7 +5,7 @@
 
 <%= form_for [@user, @status] do |f| %>
   <%= f.label :description %>
-  <%= f.select :description, ["Open To Help", "In The Zone", "Looking To Pair"] %>
+  <%= f.select :description, ["Open To Help", "In The Zone", "Ready To Pair"] %>
 
   <%= f.submit "Update status" %>
 <% end -%>
