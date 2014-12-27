@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resource :profile, only: :show
     resources :statuses, only: [:create]
+    resources :projects, only: [:create]
   end
 end

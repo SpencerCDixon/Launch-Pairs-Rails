@@ -3,11 +3,15 @@ require 'rails_helper'
 feature 'Auth user can update their current project' do
   scenario 'successfully' do
     user = FactoryGirl.create(:user)
+    sign_in_as(user)
     visit user_profile_path(user)
+    
+    expect(page).to have_content("In deep thought")
 
-    fill_in 'Current project', with: 'Book reviews in space'
+    fill_in 'Project', with: 'Book reviews in space'
     click_on 'Update project'
 
+    expect(page).to have_content('Project updated')
     expect(page).to have_content('Book reviews in space')
   end
 end
