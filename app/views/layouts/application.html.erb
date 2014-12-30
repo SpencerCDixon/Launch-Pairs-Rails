@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LaunchPairs</title>
+  <% if content_for?(:title) %>
+    <title><%= yield :title %></title>
+  <% else %>
+    <title>Launch Pairs</title>
+  <% end -%>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
