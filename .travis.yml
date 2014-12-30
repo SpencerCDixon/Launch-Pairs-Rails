@@ -1,5 +1,5 @@
 language: ruby
 rvm:
-    - 2.0.0p451
+  - 2.0.0-p451
 before_script:
-    - psql -c 'create database launch-pairs_test;' -U postgres
+  - psql -c 'create database launch-pairs_test;' -U postgres
