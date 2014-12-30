@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Home page displays all users' do
-  scenario 'authorized user can see other users successfully' do
+  scenario 'authorized user can see other users successfully', focus: true do
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
     sign_in_as(user2)
