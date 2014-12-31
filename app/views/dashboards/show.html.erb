@@ -1,0 +1,24 @@
+<%= page_title("Dashboard - #{current_user.first_name}") %>
+<h1>Dashboard</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Status</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td> <%= user.email %></td>
+    <td> <%= user.first_name %></td>
+    <td> <%= user.last_name %></td>
+    <td> <%= user.current_status %></td>
+    <% if !current_user.paired_with?(user) %>
+      <td> <%= link_to 'Paired?', pairings_path(pair_id: user.id), id: user.id, method: :post %></td>
+    <% else %>
+      <td> Complete </td> 
+    <% end -%>
+  </tr>
+<% end -%>
+</table>

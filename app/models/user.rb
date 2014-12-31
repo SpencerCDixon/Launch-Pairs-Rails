@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :statuses
   has_many :projects
+  has_many :pairings
 
   # Testing adding a custom has_on association:
   has_one :latest_status, -> { order('created_at desc') }, class_name: 'Status', dependent: :destroy
@@ -24,6 +25,11 @@ class User < ActiveRecord::Base
     else
       "In deep thought"
     end
+  end
+
+  # Should be refactored
+  def paired_with?(user)
+    pairings.where(pair_id: user.id).exists?
   end
 end
 
