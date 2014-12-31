@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate, only: :show
+  before_action :authenticate, only: :show
 
   def show
     @user = User.find(params[:user_id])

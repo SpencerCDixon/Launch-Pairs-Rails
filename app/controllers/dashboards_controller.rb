@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
 
   def show
     @users = User.all.limit(20)
