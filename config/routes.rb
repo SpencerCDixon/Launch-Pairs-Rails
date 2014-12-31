@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resources :statuses, only: [:create]
     resources :projects, only: [:create]
   end
+
+  resource :dashboard, only: :show
+  resources :pairings, only: :create
 end
