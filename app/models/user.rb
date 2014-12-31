@@ -26,5 +26,10 @@ class User < ActiveRecord::Base
       "In deep thought"
     end
   end
+
+  # Should be refactored
+  def paired_with?(user)
+    pairings.where(pair_id: user.id).exists?
+  end
 end
 

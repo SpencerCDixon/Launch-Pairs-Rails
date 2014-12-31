@@ -5,8 +5,7 @@ class PairingsController < ApplicationController
     if @pairing.save
       redirect_to dashboard_path, notice: "Pairing complete!"
     else
-      flash.now.alert 'nope'
-      render 'dashboard#show'
+      redirect_to dashboard_path, alert: "Already paired with that person!"
     end
   end
 end

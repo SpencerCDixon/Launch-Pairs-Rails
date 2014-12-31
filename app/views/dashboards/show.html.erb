@@ -14,7 +14,13 @@
     <td> <%= user.first_name %></td>
     <td> <%= user.last_name %></td>
     <td> <%= user.current_status %></td>
-    <td> <%= link_to 'Paired?', pairings_path(pair_id: user.id), id: user.id, method: :post %></td>
+
+    <% if !current_user.paired_with?(user) %>
+      <td> <%= link_to 'Paired?', pairings_path(pair_id: user.id), id: user.id, method: :post %></td>
+    <% else %>
+      <td> Complete </td> 
+    <% end -%>
+
   </tr>
 <% end -%>
 </table>
