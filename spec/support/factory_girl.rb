@@ -9,4 +9,9 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :project do
+    project 'Finishing up Launch Pairs'
+    user
+  end
+
 end
