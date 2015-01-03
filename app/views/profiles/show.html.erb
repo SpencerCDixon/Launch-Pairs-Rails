@@ -17,3 +17,9 @@
 
   <%= f.submit "Update project" %>
 <% end -%>
+
+<%= link_to "Enhance profile", new_user_profile_path(@user) %>
+
+<% if @profile %>
+  <%= @profile.email %>
+<% end -%>
