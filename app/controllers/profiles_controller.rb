@@ -26,6 +26,18 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @profile = Profile.find_by(user_id: params[:user_id])
+  end
+
+  def update
+    @profile = Profile.find_by(user_id: params[:user_id])
+    if @profile.update(profile_params)
+      flash[:notice] = "Profile successfully updated"
+      redirect_to user_profile_path(params[:user_id])
+    else
+      flash[:alert] = "Profile didn't get updated"
+      redirect_to user_profile_path(params[:user_id])
+    end
   end
 
   private

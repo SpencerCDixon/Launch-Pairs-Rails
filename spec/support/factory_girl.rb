@@ -14,4 +14,15 @@ FactoryGirl.define do
     user
   end
 
+  factory :profile do
+    blog_url "http://www.cranberrycoder.com"
+    facebook "http://www.facebook.com/spencercdixon"
+    twitter "http://www.twitter.com/spencercdixon"
+    github "http://www.github.com/spencercdixon"
+    linked_in "http://www.linkedin.com/spencercdixon"
+    phone_number "6178945641"
+    email "spencercdixon@gmail.com"
+    user
+  end
+
 end
