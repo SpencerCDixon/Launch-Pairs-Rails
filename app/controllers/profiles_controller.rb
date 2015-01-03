@@ -35,8 +35,7 @@ class ProfilesController < ApplicationController
       flash[:notice] = "Profile successfully updated"
       redirect_to user_profile_path(params[:user_id])
     else
-      flash[:alert] = "Profile didn't get updated"
-      redirect_to user_profile_path(params[:user_id])
+      render 'edit'
     end
   end
 
