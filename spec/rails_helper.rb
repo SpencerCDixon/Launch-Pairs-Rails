@@ -20,6 +20,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include AuthenticationHelper
+  config.include StatusHelper
 
   # Allows you to use focus: true
   config.filter_run :focus
