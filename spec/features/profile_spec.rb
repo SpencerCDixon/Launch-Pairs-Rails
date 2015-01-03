@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 feature "profile" do
+  let(:user) { FactoryGirl.create(:user) }
 
   context "authorized user" do
-    let(:user) { FactoryGirl.create(:user) }
 
     scenario "displays welcome message" do
       sign_in_as(user)
