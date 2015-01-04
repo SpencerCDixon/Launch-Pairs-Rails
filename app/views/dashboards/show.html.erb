@@ -10,13 +10,17 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>Status</th>
+    <th>Project</th>
+    <th>Paired?</th>
   </tr>
+
 <% @users.each do |user| %>
   <tr>
     <td> <%= user.email %></td>
     <td> <%= user.first_name %></td>
     <td> <%= user.last_name %></td>
     <td> <%= user.current_status %></td>
+    <td> <%= user.current_project %></td>
     <% if current_user == user %>
       <td> Complete </td>
     <% elsif !current_user.paired_with?(user) %>
