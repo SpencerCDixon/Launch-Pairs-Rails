@@ -61,7 +61,7 @@ feature "profile" do
       expect(page).to have_content("new_email@gmail.com")
     end
 
-    scenario "user cannot update other users information", focus: true do
+    scenario "user cannot update other users information" do
       profile = FactoryGirl.create(:profile)
       sign_in_as(user)
 

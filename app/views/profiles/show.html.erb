@@ -18,10 +18,12 @@
   <%= f.submit "Update project" %>
 <% end -%>
 
-<% if @profile %>
-  <%= link_to "Update profile", edit_user_profile_path(@user) %>
-<% else %>
-  <%= link_to "Enhance profile", new_user_profile_path(@user) %>
+<% if @user == current_user %>
+  <% if @profile %>
+    <%= link_to "Update profile", edit_user_profile_path(@user) %>
+  <% else %>
+    <%= link_to "Enhance profile", new_user_profile_path(@user) %>
+  <% end -%>
 <% end -%>
 
 
