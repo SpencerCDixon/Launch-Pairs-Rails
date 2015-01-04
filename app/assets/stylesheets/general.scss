@@ -1,0 +1,25 @@
+@import "variables";
+
+nav.top-bar {
+  background: $top-navbar;
+  height: 3rem;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: $top-navbar;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background: $navbar-link-hover;
+  height: 3rem;
+}
+// hover links in nav bar
+.top-bar-section ul li:hover:not(.has-form) > a {
+}
+// links in nav bar
+.top-bar-section ul li > a  {
+  font-family: 'Roboto Slab', serif;
+  padding: 0 25px;
+  font-weight: 400;
+  font-size: 1.1em;
+}
