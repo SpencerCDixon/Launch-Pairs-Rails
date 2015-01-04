@@ -8,9 +8,9 @@
     <h4>Project: <%= @user.current_project %> </h4>
      <% if @user == current_user %>
       <% if @profile %>
-        <%= link_to "Update profile", edit_user_profile_path(@user), class: "button info" %>
+        <%= link_to "Update Personal Info", edit_user_profile_path(@user), class: "button info" %>
       <% else %>
-        <%= link_to "Enhance profile", new_user_profile_path(@user), class: "button info" %>
+        <%= link_to "Add Personal Info", new_user_profile_path(@user), class: "button info" %>
       <% end -%>
     <% end -%>
   </div>
