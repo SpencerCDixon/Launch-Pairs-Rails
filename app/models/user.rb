@@ -32,5 +32,25 @@ class User < ActiveRecord::Base
   def paired_with?(user)
     pairings.where(pair_id: user.id).exists?
   end
+
+  def self.ready_to_pair
+    users = []
+    User.all.each do |user|
+      if user.current_status == "Ready To Pair"
+        users << user
+      end
+    end
+    users
+  end
+
+  def self.open_to_help
+    users = []
+    User.all.each do |user|
+      if user.current_status == "Open To Help"
+        users << user
+      end
+    end
+    users
+  end
 end
 

@@ -25,4 +25,20 @@ FactoryGirl.define do
     user
   end
 
+  factory :status do
+    user
+
+    factory :status_pair do
+      description "Ready To Pair"
+    end
+
+    factory :status_zone do
+      description "In The Zone"
+    end
+
+    factory :status_help do
+      description "Open To Help"
+    end
+  end
+
 end
