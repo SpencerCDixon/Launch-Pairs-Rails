@@ -15,7 +15,7 @@ feature "profile" do
       sign_in_as(user)
       visit user_profile_path(user)
 
-      click_on "Enhance profile"
+      click_on "Add Personal Info"
 
       fill_in "Blog url", with: "http://www.cranberrycoder.com"
       fill_in "Facebook", with: "http://www.facebook.com/spencercdixon"
@@ -42,8 +42,8 @@ feature "profile" do
       sign_in_as(profile.user)
 
       visit user_profile_path(profile.user)
-      expect(page).to have_content("Update profile")
-      expect(page).to_not have_content("Enhance profile")
+      expect(page).to have_content("Update Personal Info")
+      expect(page).to_not have_content("Add Personal Info")
     end
 
     scenario "update with new information" do
@@ -52,7 +52,7 @@ feature "profile" do
       sign_in_as(profile.user)
 
       visit user_profile_path(profile.user)
-      click_on "Update profile"
+      click_on "Update Personal Info"
 
       fill_in "Email", with: "new_email@gmail.com"
       click_on "Update profile"
@@ -67,8 +67,8 @@ feature "profile" do
 
       visit user_profile_path(profile.user)
 
-      expect(page).to_not have_content("Update profile")
-      expect(page).to_not have_content("Enhance profile")
+      expect(page).to_not have_content("Update Personal Info")
+      expect(page).to_not have_content("Add Personal Info")
     end
 
     scenario "displays % of people paired with" do
