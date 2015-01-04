@@ -15,8 +15,6 @@ feature "status" do
       expect(page).to have_content("Sleeping")
 
       update_status("In The Zone")
-      # find("#status_description").find(:option, "In The Zone").select_option
-      # click_on "Update status"
 
       expect(page).to_not have_content("Sleeping")
       expect(page).to have_content("In The Zone")

@@ -11,7 +11,7 @@ feature 'projects' do
       visit user_profile_path(user)
       expect(page).to have_content("In deep thought")
 
-      fill_in 'Project', with: 'Book reviews in space'
+      fill_in "project_project", with: "Book reviews in space"
       click_on 'Update project'
 
       expect(page).to have_content('Project updated')

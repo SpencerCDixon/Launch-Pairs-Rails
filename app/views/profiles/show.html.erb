@@ -38,10 +38,19 @@
     <% end -%>
 
     <%= form_for [@user, @project] do |f| %>
-      <%= f.label :project %>
-      <%= f.text_field :project %>
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="row collapse">
+            <div class="small-10 columns">
+              <%= f.text_field :project %>
+            </div>
 
-      <%= f.submit "Update project", class: "button info" %>
+            <div class="small-2 columns">
+              <%= f.submit "Update project", class: "button postfix info" %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end -%>
   </div>
 </div>
