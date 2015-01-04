@@ -1,0 +1,40 @@
+@import "variables";
+
+nav.top-bar {
+  background: $top-navbar;
+  height: 3.2rem;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: $top-navbar;
+  line-height: 3.2rem;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background: $navbar-link-hover;
+  height: 3.2rem;
+}
+// hover links in nav bar
+.top-bar-section ul li:hover:not(.has-form) > a {
+}
+// links in nav bar
+.top-bar-section ul li > a  {
+  height: 3.2rem;
+  font-family: 'Roboto Slab', serif;
+  padding: 0 25px;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+#logo {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  height: 52px;
+  width: 250px;
+  margin-left: 40px;
+  color: white;
+  background: image-url('launch-pairs-logo.png') no-repeat center center;
+  background-size: contain;
+  z-index: 0;
+}
