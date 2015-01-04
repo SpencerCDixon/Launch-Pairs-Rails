@@ -1,0 +1,45 @@
+@import 'variables';
+
+#footer {
+  height: 15%;
+  width: 100%;
+  background: #4e4e4e;
+}
+
+.footer-logo {
+  float: right;
+  height: 60px;
+  margin-top: 7%;
+  margin-right: 7%;
+  display: inline-block;
+}
+
+#copyright {
+  display: inline-block;
+  color: white;
+  font-size: 1.1em;
+  font-family: $h1-font; 
+  margin-top: 13%;
+}
+
+ul.footer-nav {
+  margin: 0;
+}
+
+ul.footer-nav li {
+  display: inline-block;
+  float: left;
+  margin-top: 6.4%;
+  padding-right: 30px;
+}
+
+ul.footer-nav li a {
+  color: white;
+  font-family: $h1-font;
+  &:hover {
+    color: #37becc;
+
+  }
+}
+
+
