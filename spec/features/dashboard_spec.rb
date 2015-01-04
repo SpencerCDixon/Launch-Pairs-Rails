@@ -21,7 +21,7 @@ feature 'dashboard' do
       sign_in_as(user)
       visit dashboard_path
 
-      click_on 'All Ready To Pair'
+      click_on 'Ready To Pair'
       expect(page).to have_content(pair1.user.email)
       expect(page).to have_content(pair2.user.email)
       expect(page).to_not have_content(zone.user.email)
@@ -36,7 +36,7 @@ feature 'dashboard' do
       sign_in_as(user)
       visit dashboard_path
 
-      click_on 'All Open To Help'
+      click_on 'Open To Help'
       expect(page).to have_content(help1.user.email)
       expect(page).to have_content(help2.user.email)
       expect(page).to_not have_content(zone.user.email)

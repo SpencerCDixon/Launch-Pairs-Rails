@@ -2,4 +2,14 @@
 
 body {
   background: $main-body;
+  color: $body-text-color;
+}
+
+h1 {
+  font-family: $h1-font;
+  color: $h1-color;
+}
+
+table {
+  width: 100%;
 }

@@ -1,6 +1,12 @@
 // Font Family
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700);
 
+// Foundation Overides
+//
+// $info-color: #37becc;  Teal
+// $alert-color: #ed197b;  Pink
+// $success-color: #85cd15; Light green
+
 // Top Navbar
 $top-navbar: #37BECC;
 $navbar-link-hover: #2A939E;
@@ -8,3 +14,9 @@ $navbar-link-hover: #2A939E;
 
 // Background
 $main-body: #E5F3F4;
+
+
+// Text
+$h1-color: #ed197b;
+$h1-font: 'Roboto Slab', serif;
+$body-text-color: #4e4e4e;

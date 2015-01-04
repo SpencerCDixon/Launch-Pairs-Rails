@@ -2,22 +2,24 @@
 
 nav.top-bar {
   background: $top-navbar;
-  height: 3rem;
+  height: 3.2rem;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
   background: $top-navbar;
+  line-height: 3.2rem;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
   background: $navbar-link-hover;
-  height: 3rem;
+  height: 3.2rem;
 }
 // hover links in nav bar
 .top-bar-section ul li:hover:not(.has-form) > a {
 }
 // links in nav bar
 .top-bar-section ul li > a  {
+  height: 3.2rem;
   font-family: 'Roboto Slab', serif;
   padding: 0 25px;
   font-weight: 400;
