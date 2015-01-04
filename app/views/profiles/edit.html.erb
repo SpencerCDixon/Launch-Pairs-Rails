@@ -1,0 +1,26 @@
+<h1>Edit profile information</h1>
+
+<%= form_for [current_user, @profile] do |f| %>
+  <%= f.label :blog_url %>
+  <%= f.text_field :blog_url %>
+
+  <%= f.label :facebook %>
+  <%= f.text_field :facebook %>
+
+  <%= f.label :twitter %>
+  <%= f.text_field :twitter %>
+
+  <%= f.label :github %>
+  <%= f.text_field :github %>
+
+  <%= f.label :linked_in %>
+  <%= f.text_field :linked_in %>
+
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit "Update profile" %>
+<% end -%>

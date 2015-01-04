@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :statuses
   has_many :projects
   has_many :pairings
+  has_one :profile
 
   # Testing adding a custom has_on association:
   has_one :latest_status, -> { order('created_at desc') }, class_name: 'Status', dependent: :destroy

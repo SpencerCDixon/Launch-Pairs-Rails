@@ -17,3 +17,21 @@
 
   <%= f.submit "Update project" %>
 <% end -%>
+
+<% if @user == current_user %>
+  <% if @profile %>
+    <%= link_to "Update profile", edit_user_profile_path(@user) %>
+  <% else %>
+    <%= link_to "Enhance profile", new_user_profile_path(@user) %>
+  <% end -%>
+<% end -%>
+
+
+<% if @profile %>
+  <%= @profile.email %>
+  <%= @profile.phone_number %>
+  <%= link_to 'Facebook', @profile.facebook %>
+  <%= link_to 'Twitter', @profile.twitter %>
+  <%= link_to 'Github', @profile.github %>
+  <%= link_to 'Linked In', @profile.linked_in %>
+<% end -%>
