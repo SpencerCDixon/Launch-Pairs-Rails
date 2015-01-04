@@ -41,6 +41,24 @@ feature 'dashboard' do
       expect(page).to have_content(help2.user.email)
       expect(page).to_not have_content(zone.user.email)
     end
+
+    scenario 'can filter for feeling lucky' do
+      user1 = FactoryGirl.create(:user)
+      pair1 = FactoryGirl.create(:user)
+      pair2 = FactoryGirl.create(:user)
+      lucky_user = FactoryGirl.create(:status_pair)
+      unlucky_user = FactoryGirl.create(:status_help)
+
+      user1.pairings.create(user_id: user1.id, pair_id: pair1.id)
+      user1.pairings.create(user_id: user1.id, pair_id: pair2.id)
+
+      sign_in_as(user1)
+      visit dashboard_path
+      click_on "I'm Feeling Lucky"
+
+      expect(page).to have_content(lucky_user.user.email)
+      expect(page).to_not have_content(unlucky_user.user.email)
+    end
   end
 
   context 'visitor' do
