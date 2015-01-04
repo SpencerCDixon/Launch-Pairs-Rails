@@ -59,5 +59,30 @@ class User < ActiveRecord::Base
     total = pairings.to_f / count.to_f
     total.round(2) * 100
   end
+
+  def self.feeling_lucky(current_user)
+    potential_people = []
+    final_people = []
+
+    # need to eliminate these N + 1 queries
+    User.all.each do |user|
+      if !current_user.paired_with?(user)
+        potential_people << user
+      end
+    end
+
+    potential_people.each do |user|
+      if user.current_status == "Ready To Pair"
+        final_people << user
+      end
+    end
+
+    # Need to find a new way to return something if its empty
+    if final_people.empty?
+      [User.find_or_create_by(email: "notfound@sample.com")]
+    else
+      [final_people.sample]
+    end
+  end
 end
 
