@@ -14,6 +14,7 @@ feature "pairings" do
 
       find(:css, "##{partner.id}").click
 
+      save_and_open_page
       expect(page).to have_content('Complete')
       expect(page).to_not have_content('Paired?')
     end

@@ -52,5 +52,12 @@ class User < ActiveRecord::Base
     end
     users
   end
+
+  def percent_paired_with
+    count = User.count - 1
+    pairings = self.pairings.count
+    total = pairings.to_f / count.to_f
+    total.round(2) * 100
+  end
 end
 

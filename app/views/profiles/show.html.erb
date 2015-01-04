@@ -16,19 +16,23 @@
   </div>
 
   <div class="large-8 columns">
+    <h3>Percent Paired With: <%= @user.percent_paired_with %> %</h3>
+    <div class="progress small success">
+      <span class="meter" style="width: <%= @user.percent_paired_with %>%"></span>
+    </div>
+
     <%= form_for [@user, @status] do |f| %>
       <%= f.label :description %>
       <%= f.select :description, ["Open To Help", "In The Zone", "Ready To Pair"] %>
 
-      <%= f.submit "Update status" %>
+      <%= f.submit "Update status", class: "button info" %>
     <% end -%>
-
 
     <%= form_for [@user, @project] do |f| %>
       <%= f.label :project %>
       <%= f.text_field :project %>
 
-      <%= f.submit "Update project" %>
+      <%= f.submit "Update project", class: "button info" %>
     <% end -%>
   </div>
 </div>
