@@ -4,8 +4,6 @@
 <div class="row">
 
   <div class="large-4 columns">
-    <h4>Status: <%= @user.current_status %> </h4>
-    <h4>Project: <%= @user.current_project %> </h4>
      <% if @user == current_user %>
       <% if @profile %>
         <%= link_to "Update Personal Info", edit_user_profile_path(@user), class: "button info" %>
@@ -16,16 +14,27 @@
   </div>
 
   <div class="large-8 columns">
+    <h4>Status: <%= @user.current_status %> </h4>
+    <h4>Project: <%= @user.current_project %> </h4>
     <h3>Percent Paired With: <%= @user.percent_paired_with %> %</h3>
     <div class="progress small success">
       <span class="meter" style="width: <%= @user.percent_paired_with %>%"></span>
     </div>
 
     <%= form_for [@user, @status] do |f| %>
-      <%= f.label :description %>
-      <%= f.select :description, ["Open To Help", "In The Zone", "Ready To Pair"] %>
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="row collapse">
+            <div class="small-10 columns">
+              <%= f.select :description, ["Open To Help", "In The Zone", "Ready To Pair"] %>
+            </div>
 
-      <%= f.submit "Update status", class: "button info" %>
+            <div class="small-2 columns">
+              <%= f.submit "Update status", class: "button postfix info" %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end -%>
 
     <%= form_for [@user, @project] do |f| %>
