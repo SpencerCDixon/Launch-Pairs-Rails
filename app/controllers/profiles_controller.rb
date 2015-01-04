@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
-    @profile.user_id = current_user
+    @profile.user = current_user
 
     if @profile.save
       flash[:notice] = "Profile information updated."
