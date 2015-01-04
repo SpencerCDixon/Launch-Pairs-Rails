@@ -1,6 +1,8 @@
 <%= page_title("Dashboard - #{current_user.first_name}") %>
 <h1>Dashboard</h1>
 
+<%= link_to "All Ready To Pair", dashboard_path(query: "pair"), class: "button tiny success" %>
+
 <table>
   <tr>
     <th>Email</th>

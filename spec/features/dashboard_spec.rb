@@ -1,0 +1,37 @@
+require 'rails_helper'
+
+feature 'dashboard' do
+  context 'authorized user' do
+    scenario 'can see other users successfully' do
+      user1 = FactoryGirl.create(:user)
+      user2 = FactoryGirl.create(:user)
+      sign_in_as(user2)
+      visit root_path
+
+      expect(page).to have_content(user1.email)
+      expect(page).to have_content(user2.email)
+    end
+
+    scenario 'can filter for looking to pair', focus: true do
+      user = FactoryGirl.create(:user)
+      pair1 = FactoryGirl.create(:status_pair)
+      pair2 = FactoryGirl.create(:status_pair)
+      zone = FactoryGirl.create(:status_zone)
+
+      sign_in_as(user)
+      visit dashboard_path
+
+      click_on 'All Ready To Pair'
+      expect(page).to have_content(pair1.user.email)
+      expect(page).to have_content(pair2.user.email)
+      expect(page).to_not have_content(zone.user.email)
+    end
+  end
+
+  context 'visitor' do
+    scenario 'unauthorized user gets redirected to sign in page' do
+      visit root_path
+      expect(page).to have_content("Log in")
+    end
+  end
+end
