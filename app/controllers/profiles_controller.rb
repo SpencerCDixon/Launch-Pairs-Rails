@@ -15,13 +15,13 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
-    @profile.user_id = params[:user_id]
+    @profile.user_id = current_user
 
     if @profile.save
       flash[:notice] = "Profile information updated."
       redirect_to user_profile_path(params[:user_id])
     else
-      flash[:notice] = "Something went wrong with creating your profile"
+      render 'new'
     end
   end
 
@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_by(user_id: params[:user_id])
     if @profile.update(profile_params)
       flash[:notice] = "Profile successfully updated"
-      redirect_to user_profile_path(params[:user_id])
+      redirect_to user_profile_path(current_user)
     else
       render 'edit'
     end
