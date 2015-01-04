@@ -4,7 +4,7 @@ class StatusesController < ApplicationController
     @status.user = current_user
 
     if @status.save
-      redirect_to user_profile_path(current_user), notice: "Status updated"
+      redirect_to user_profile_path(current_user), success: "Status updated"
     else
       render 'profile#show'
     end

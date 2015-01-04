@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
     if @project.save
       redirect_to user_profile_path(current_user), 
-        notice: "Project updated"
+        success: "Project updated"
     else
       render 'profile#show'
     end
