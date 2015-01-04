@@ -12,7 +12,7 @@ feature 'dashboard' do
       expect(page).to have_content(user2.email)
     end
 
-    scenario 'can filter for looking to pair', focus: true do
+    scenario 'can filter for looking to pair' do
       user = FactoryGirl.create(:user)
       pair1 = FactoryGirl.create(:status_pair)
       pair2 = FactoryGirl.create(:status_pair)
@@ -24,6 +24,21 @@ feature 'dashboard' do
       click_on 'All Ready To Pair'
       expect(page).to have_content(pair1.user.email)
       expect(page).to have_content(pair2.user.email)
+      expect(page).to_not have_content(zone.user.email)
+    end
+
+    scenario 'can filter for open to help' do
+      user = FactoryGirl.create(:user)
+      help1 = FactoryGirl.create(:status_help)
+      help2 = FactoryGirl.create(:status_help)
+      zone = FactoryGirl.create(:status_zone)
+
+      sign_in_as(user)
+      visit dashboard_path
+
+      click_on 'All Open To Help'
+      expect(page).to have_content(help1.user.email)
+      expect(page).to have_content(help2.user.email)
       expect(page).to_not have_content(zone.user.email)
     end
   end

@@ -42,5 +42,15 @@ class User < ActiveRecord::Base
     end
     users
   end
+
+  def self.open_to_help
+    users = []
+    User.all.each do |user|
+      if user.current_status == "Open To Help"
+        users << user
+      end
+    end
+    users
+  end
 end
 
