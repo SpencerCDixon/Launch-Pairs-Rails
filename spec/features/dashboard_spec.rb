@@ -59,6 +59,26 @@ feature 'dashboard' do
       expect(page).to have_content(lucky_user.user.email)
       expect(page).to_not have_content(unlucky_user.user.email)
     end
+
+    scenario 'feed displays 5 recent events' do
+      FactoryGirl.create_list(:status_pair, 10)
+      user = FactoryGirl.create(:user)
+      FactoryGirl.create_list(:status_zone, 2, user: user)
+      FactoryGirl.create_list(:status_help, 2, user: user)
+
+      sign_in_as(user)
+      visit user_profile_path(user)
+
+      fill_in "project_project", with: "Book reviews in space"
+      click_on 'Update project'
+
+      visit dashboard_path
+      expect(page).to have_content("#{user.first_name} just updated status to: In The Zone")
+      expect(page).to have_content("#{user.first_name} just updated status to: In The Zone")
+      expect(page).to have_content("#{user.first_name} just updated status to: Open To Help")
+      expect(page).to have_content("#{user.first_name} just updated status to: Open To Help")
+      expect(page).to have_content("#{user.first_name} just updated project to: Book reviews in space")
+    end
   end
 
   context 'visitor' do

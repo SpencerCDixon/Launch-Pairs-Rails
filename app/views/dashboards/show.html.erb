@@ -1,6 +1,28 @@
 <%= page_title("Dashboard - #{current_user.first_name}") %>
 <h1>Dashboard</h1>
 
+<div class="row">
+  <div class="large-6 columns">
+    <h2>Newsfeed</h2>
+    <div class="panel newsfeed">
+      <% @feed.each do |event| %>
+        <% if event.is_a?(Status) %>
+          <p><%= event.user.first_name %> just updated status to: <%= event.description %> </p>
+        <% else %>
+          <p><%= event.user.first_name %> just updated project to: <%= event.project %> </p>
+        <% end -%>
+      <% end -%>
+    </div>
+  </div>
+
+  <div class="large-6 columns">
+      <h2>Quick Question</h2>
+    <div class="panel quick-question">
+    </div>
+  </div>
+</div>
+
+
 <div class="panel callout pair-navigation">
   <%= link_to "I'm Feeling Lucky", dashboard_path(query: "lucky"), class: "button alert" %>
   <%= link_to "Ready To Pair", dashboard_path(query: "pair"), class: "button success" %>
