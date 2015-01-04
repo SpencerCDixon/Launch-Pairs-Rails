@@ -1,37 +1,52 @@
+<%= page_title("#{@user.first_name}'s Profile") %>
 <h1><%= @user.first_name %>'s Profile</h1>
 
-<h2>Status: <%= @user.current_status %> </h2>
-<h2>Current Project: <%= @user.current_project %> </h2>
+<div class="row">
 
-<%= form_for [@user, @status] do |f| %>
-  <%= f.label :description %>
-  <%= f.select :description, ["Open To Help", "In The Zone", "Ready To Pair"] %>
+  <div class="large-4 columns">
+    <h4>Status: <%= @user.current_status %> </h4>
+    <h4>Project: <%= @user.current_project %> </h4>
+     <% if @user == current_user %>
+      <% if @profile %>
+        <%= link_to "Update profile", edit_user_profile_path(@user), class: "button info" %>
+      <% else %>
+        <%= link_to "Enhance profile", new_user_profile_path(@user), class: "button info" %>
+      <% end -%>
+    <% end -%>
+  </div>
 
-  <%= f.submit "Update status" %>
-<% end -%>
+  <div class="large-8 columns">
+    <h3>Percent Paired With: <%= @user.percent_paired_with %> %</h3>
+    <div class="progress small success">
+      <span class="meter" style="width: <%= @user.percent_paired_with %>%"></span>
+    </div>
 
- 
-<%= form_for [@user, @project] do |f| %>
-  <%= f.label :project %>
-  <%= f.text_field :project %>
+    <%= form_for [@user, @status] do |f| %>
+      <%= f.label :description %>
+      <%= f.select :description, ["Open To Help", "In The Zone", "Ready To Pair"] %>
 
-  <%= f.submit "Update project" %>
-<% end -%>
+      <%= f.submit "Update status", class: "button info" %>
+    <% end -%>
 
-<% if @user == current_user %>
-  <% if @profile %>
-    <%= link_to "Update profile", edit_user_profile_path(@user) %>
-  <% else %>
-    <%= link_to "Enhance profile", new_user_profile_path(@user) %>
-  <% end -%>
-<% end -%>
+    <%= form_for [@user, @project] do |f| %>
+      <%= f.label :project %>
+      <%= f.text_field :project %>
+
+      <%= f.submit "Update project", class: "button info" %>
+    <% end -%>
+  </div>
+</div>
 
 
-<% if @profile %>
-  <%= @profile.email %>
-  <%= @profile.phone_number %>
-  <%= link_to 'Facebook', @profile.facebook %>
-  <%= link_to 'Twitter', @profile.twitter %>
-  <%= link_to 'Github', @profile.github %>
-  <%= link_to 'Linked In', @profile.linked_in %>
-<% end -%>
+<div class="row">
+  <div class="large-12 columns">
+    <% if @profile %>
+      <%= @profile.email %>
+      <%= @profile.phone_number %>
+      <%= link_to 'Facebook', @profile.facebook %>
+      <%= link_to 'Twitter', @profile.twitter %>
+      <%= link_to 'Github', @profile.github %>
+      <%= link_to 'Linked In', @profile.linked_in %>
+    <% end -%>
+  </div>
+</div>

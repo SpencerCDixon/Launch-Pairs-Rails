@@ -30,4 +30,14 @@ RSpec.describe User, :type => :model do
       expect(project.user.current_project).to eq('Finishing up Launch Pairs')
     end
   end
+
+  # context "#percent_paired_with" do
+  #   it 'returns 50% when there are two people', focus: true do
+  #     user1 = FactoryGirl.create(:user)
+  #     user2 = FactoryGirl.create(:user)
+  #     main_user = FactoryGirl.create(:user)
+  #     main_user.pairings.create(user1)
+  #     binding.pry
+  #   end
+  # end
 end
