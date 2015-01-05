@@ -15,6 +15,7 @@ class DashboardsController < ApplicationController
     @feed = Dashboard.display_feed
   end
 
+  # Don't know how to properly test this feature, ask for dans help
   def send_flow
     flow = Flowdock::Flow.new(:api_token => ENV['LP_FLOW'],
         :source => "LaunchPairs", :from => {:name => current_user.first_name, :address => current_user.email})
