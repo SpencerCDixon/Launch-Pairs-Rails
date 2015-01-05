@@ -13,19 +13,11 @@ class User < ActiveRecord::Base
   # This works but breaks my views b/c they call on nil.  Need a way to create an empty status everytime a user gets created.
 
   def current_status
-    if !statuses.empty?
-      statuses.last.description 
-    else
-      statuses.new.description
-    end
+    !statuses.empty? ? statuses.last.description : statuses.new.description
   end
 
   def current_project
-    if !projects.empty?
-      projects.last.project
-    else
-      projects.new.project
-    end
+    !projects.empty? ? projects.last.project : projects.new.project
   end
 
   # Should be refactored
