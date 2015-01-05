@@ -1,5 +1,5 @@
 <%= page_title("Dashboard - #{current_user.first_name}") %>
-<h1>Dashboard</h1>
+<h1 class="page-title">Dashboard</h1>
 
 <div class="row">
   <div class="large-6 columns">
@@ -18,6 +18,10 @@
   <div class="large-6 columns">
       <h2>Quick Question</h2>
     <div class="panel quick-question">
+      <p>Ask a quick question to your peers for clarification.  Sometimes you just need a quick sanity check ;)</p>
+      <%= text_area_tag  "Question", nil, size: "30x7" %>
+      <%= submit_tag "Ask Your Question", class: "button alert" %>
+
     </div>
   </div>
 </div>
