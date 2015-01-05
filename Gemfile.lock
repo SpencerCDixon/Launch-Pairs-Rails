@@ -78,18 +78,27 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dotenv (1.0.1)
+    dotenv-rails (1.0.1)
+      dotenv (= 1.0.1)
     erubis (2.7.0)
     execjs (2.2.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    flowdock (0.4.0)
+      httparty (~> 0.7)
+      multi_json
     foundation-rails (5.5.0.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0, < 3.4)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
@@ -110,6 +119,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.5.0)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     netrc (0.7.7)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
@@ -231,8 +241,10 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   coveralls
   devise
+  dotenv-rails
   factory_girl
   faker
+  flowdock
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
