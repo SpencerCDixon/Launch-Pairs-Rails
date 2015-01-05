@@ -5,9 +5,13 @@ body {
   color: $body-text-color;
 }
 
-h1 {
+h1  {
   font-family: $h1-font;
   color: $h1-color;
+}
+h2 {
+  font-family: $h1-font;
+  color: $h2-color;
 }
 
 table {

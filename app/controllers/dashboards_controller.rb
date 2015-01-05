@@ -11,5 +11,8 @@ class DashboardsController < ApplicationController
     else
       @users = User.all.limit(20)
     end
+
+    @feed = Dashboard.display_feed
   end
+
 end
