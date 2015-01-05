@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     if !statuses.empty?
       statuses.last.description 
     else
-     "Sleeping"
+      statuses.new.description
     end
   end
 
@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     if !projects.empty?
       projects.last.project
     else
-      "In deep thought"
+      projects.new.project
     end
   end
 
