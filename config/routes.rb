@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resource :dashboard, only: :show
   resources :pairings, only: :create
+  post '/dashboard/send_flow' => "dashboards#send_flow"
 end

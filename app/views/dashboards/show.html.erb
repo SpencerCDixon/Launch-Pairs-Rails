@@ -19,8 +19,10 @@
       <h2>Quick Question</h2>
     <div class="panel quick-question">
       <p>Ask a quick question to your peers for clarification.  Sometimes you just need a quick sanity check ;)</p>
-      <%= text_area_tag  "Question", nil, size: "30x7" %>
-      <%= submit_tag "Ask Your Question", class: "button alert" %>
+      <%= form_for 'flow', url: { controller: :dashboards, action: :send_flow } do |f|  %>
+        <%= f.text_area  :question %>
+        <%= f.submit "Ask Your Question", class: "button alert" %>
+      <% end -%>
 
     </div>
   </div>
