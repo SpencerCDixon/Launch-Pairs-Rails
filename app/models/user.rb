@@ -27,17 +27,15 @@ class User < ActiveRecord::Base
 
   def self.ready_to_pair
     users = []
-    User.all.each do |user|
-      if user.current_status == "Ready To Pair"
-        users << user
-      end
+    all.each do |user|
+      users << user  if user.current_status == "Ready To Pair"
     end
     users
   end
 
   def self.open_to_help
     users = []
-    User.all.each do |user|
+    all.each do |user|
       if user.current_status == "Open To Help"
         users << user
       end
@@ -46,9 +44,9 @@ class User < ActiveRecord::Base
   end
 
   def percent_paired_with
-    count = User.count - 1
+    students = User.count - 1
     pairings = self.pairings.count
-    total = pairings.to_f / count.to_f
+    total = pairings.to_f / students.to_f
     total.round(2) * 100
   end
 
