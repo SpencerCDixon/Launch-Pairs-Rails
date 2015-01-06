@@ -8,11 +8,7 @@ class StudentRegistration
   end
 
   def create_dependencies
-    if @user.save
-      @user.statuses.create(description: DEFAULT_STATUS)
-      @user.projects.create(project: DEFAULT_PROJECT)
-    else
-      false
-    end
+    @user.statuses.create!(description: DEFAULT_STATUS)
+    @user.projects.create!(project: DEFAULT_PROJECT)
   end
 end

@@ -8,10 +8,11 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
-   def create
-     super
-     StudentRegistration.new(@user).create_dependencies
-   end
+  def create
+    super do
+      StudentRegistration.new(resource).create_dependencies
+    end
+  end
 
   protected
 

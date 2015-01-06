@@ -14,11 +14,11 @@ class User < ActiveRecord::Base
 
   # the creation part of these two methods needs to be relegated to a service object
   def current_status
-    !statuses.empty? ? statuses.last.description : statuses.new.description
+    statuses.last.description if statuses.exists? 
   end
 
   def current_project
-    !projects.empty? ? projects.last.project : projects.create.project
+    projects.last.project if projects.exists?
   end
 
   # Should be refactored
