@@ -12,20 +12,13 @@ class User < ActiveRecord::Base
   has_one :latest_status, -> { order('created_at desc') }, class_name: 'Status', dependent: :destroy
   # This works but breaks my views b/c they call on nil.  Need a way to create an empty status everytime a user gets created.
 
+  # the creation part of these two methods needs to be relegated to a service object
   def current_status
-    if !statuses.empty?
-      statuses.last.description 
-    else
-     "Sleeping"
-    end
+    !statuses.empty? ? statuses.last.description : statuses.new.description
   end
 
   def current_project
-    if !projects.empty?
-      projects.last.project
-    else
-      "In deep thought"
-    end
+    !projects.empty? ? projects.last.project : projects.new.project
   end
 
   # Should be refactored
@@ -35,17 +28,15 @@ class User < ActiveRecord::Base
 
   def self.ready_to_pair
     users = []
-    User.all.each do |user|
-      if user.current_status == "Ready To Pair"
-        users << user
-      end
+    all.each do |user|
+      users << user  if user.current_status == "Ready To Pair"
     end
     users
   end
 
   def self.open_to_help
     users = []
-    User.all.each do |user|
+    all.each do |user|
       if user.current_status == "Open To Help"
         users << user
       end
@@ -54,9 +45,9 @@ class User < ActiveRecord::Base
   end
 
   def percent_paired_with
-    count = User.count - 1
+    students = User.count - 1
     pairings = self.pairings.count
-    total = pairings.to_f / count.to_f
+    total = pairings.to_f / students.to_f
     total.round(2) * 100
   end
 

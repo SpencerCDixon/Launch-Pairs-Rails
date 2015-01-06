@@ -12,15 +12,17 @@ class DashboardsController < ApplicationController
       @users = User.all.limit(20)
     end
 
+    # needs to be refactored into it's own model
     @feed = Dashboard.display_feed
   end
 
-  # Don't know how to properly test this feature, ask for dans help
+  # Don't know how to properly test this feature, ask for dans help, should also be refactored into it's own rest model
   def send_flow
     flow = Flowdock::Flow.new(:api_token => ENV['LP_FLOW'],
         :source => "LaunchPairs", :from => {:name => current_user.first_name, :address => current_user.email})
 
     flow.push_to_chat(:content => params[:flow][:question], :external_user_name => current_user.first_name.gsub!(/\s/, ""))
+
     flash[:success] = "Your question was sent! Check the flow for any answers"
     redirect_to dashboard_path
   end

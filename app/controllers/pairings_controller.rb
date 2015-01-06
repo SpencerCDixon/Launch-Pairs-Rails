@@ -4,8 +4,8 @@ class PairingsController < ApplicationController
 
     if @pairing.save
       redirect_to dashboard_path, info: "Pairing complete!"
-    # else
-      # redirect_to dashboard_path, alert: "Already paired with that person!"
+    else
+      redirect_to root_path
     end
   end
 end
