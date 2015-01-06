@@ -10,7 +10,7 @@ FactoryGirl.define do
   end
 
   factory :project do
-    project 'Finishing up Launch Pairs'
+    project 'In deep thought'
     user
   end
 
@@ -26,6 +26,7 @@ FactoryGirl.define do
   end
 
   factory :status do
+    description "Sleeping"
     user
 
     factory :status_pair do

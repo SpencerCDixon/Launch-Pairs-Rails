@@ -12,8 +12,6 @@ feature "status" do
     scenario "creates status successfully" do
       visit user_profile_path(user)
 
-      expect(page).to have_content("Sleeping")
-
       update_status("In The Zone")
 
       expect(page).to_not have_content("Sleeping")
@@ -22,8 +20,6 @@ feature "status" do
 
     scenario "status gets updated on dashboard" do
       visit user_profile_path(user)
-
-      expect(page).to have_content("Sleeping")
 
       update_status("In The Zone")
 

@@ -10,7 +10,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super do
-      StudentRegistration.new(resource).create_dependencies
+      if resource.save
+        StudentRegistration.new(resource).create_dependencies
+      end
     end
   end
 

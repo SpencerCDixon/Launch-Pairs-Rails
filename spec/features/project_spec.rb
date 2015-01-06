@@ -6,6 +6,8 @@ feature 'projects' do
 
     scenario 'successfully updates project' do
       user = FactoryGirl.create(:user)
+      FactoryGirl.create(:project, user: user)
+      FactoryGirl.create(:status, user: user)
       sign_in_as(user)
 
       visit user_profile_path(user)
