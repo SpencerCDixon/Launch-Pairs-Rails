@@ -9,8 +9,10 @@
 #
 
 20.times do |n|
-  User.create(email: "user#{n}@email.com", password: '12345678', 
+ u = User.create(email: "user#{n}@email.com", password: '12345678', 
               password_confirmation: '12345678',
               first_name: Faker::Name.name, last_name: Faker::Name.name)
+ u.statuses.create(description: "Sleeping") 
+ u.projects.create(project: "In deep thought")
 end
 
