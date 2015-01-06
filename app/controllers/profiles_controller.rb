@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
 
     if @profile.save
       flash[:notice] = "Profile information updated."
-      redirect_to user_profile_path(params[:user_id])
+      redirect_to user_profile_path(current_user)
     else
       render 'new'
     end

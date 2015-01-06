@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_one :latest_status, -> { order('created_at desc') }, class_name: 'Status', dependent: :destroy
   # This works but breaks my views b/c they call on nil.  Need a way to create an empty status everytime a user gets created.
 
+  # the creation part of these two methods needs to be relegated to a service object
   def current_status
     !statuses.empty? ? statuses.last.description : statuses.new.description
   end
