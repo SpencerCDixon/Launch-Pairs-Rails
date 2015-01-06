@@ -1,10 +1,17 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  # def create
-  #   # super
-  #   # methods that I iwll need to override
-  #
-  # end
+  def new
+    super
+  end
+
+  def update
+    super
+  end
+
+   def create
+     super
+     StudentRegistration.new(@user).create_dependencies
+   end
 
   protected
 

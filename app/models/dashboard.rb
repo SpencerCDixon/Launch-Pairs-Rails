@@ -1,5 +1,4 @@
-class Dashboard 
-
+class Dashboard
   def self.display_feed
     projects = Project.all
     statuses = Status.all

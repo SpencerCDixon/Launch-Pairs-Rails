@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def current_project
-    !projects.empty? ? projects.last.project : projects.new.project
+    !projects.empty? ? projects.last.project : projects.create.project
   end
 
   # Should be refactored

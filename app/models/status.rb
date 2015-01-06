@@ -3,7 +3,8 @@ class Status < ActiveRecord::Base
 
   validates :description, presence: true, inclusion: { in: ['Open To Help',
                                                             'Ready To Pair',
-                                                            'In The Zone'] }
+                                                            'In The Zone',
+                                                            'Sleeping'] }
   def description
     self[:description] || "Sleeping"
   end
