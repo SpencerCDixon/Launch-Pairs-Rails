@@ -1,5 +1,5 @@
 class PairingsController < ApplicationController
-  respond_to :js, :html
+  respond_to :html, :json
 
   def create
     @pairing = Pairing.new(user_id: current_user.id, pair_id: params[:pair_id])
@@ -7,7 +7,7 @@ class PairingsController < ApplicationController
     if @pairing.save
       respond_to do |format|
         format.html { redirect_to dashboard_path, info: "Pairing complete!" }
-        format.js
+        format.json { render json: @pairing }
       end
     else
       redirect_to root_path
