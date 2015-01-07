@@ -28,38 +28,30 @@ feature 'dashboard' do
       expect(page).to_not have_content(zone.user.email)
     end
 
-    context 'regarding pairs' do 
 
-      let!(:pair1) { FactoryGirl.create(:status_pair) }
-      let!(:pair2) { FactoryGirl.create(:status_pair) }
+    scenario 'can filter for looking to pair' do
+      pair1 = FactoryGirl.create(:status_pair)
+      pair2 = FactoryGirl.create(:status_pair)
+      zone = FactoryGirl.create(:status_zone)
 
-      scenario 'can filter for looking to pair' do
-        zone = FactoryGirl.create(:status_zone)
+      sign_in_as(user)
+      visit dashboard_path
 
-        sign_in_as(user)
-        visit dashboard_path
-
-        click_on 'Ready To Pair'
-        expect(page).to have_content(pair1.user.email)
-        expect(page).to have_content(pair2.user.email)
-        expect(page).to_not have_content(zone.user.email)
-      end
-
-      scenario 'can filter for feeling lucky' do
-        lucky_user = FactoryGirl.create(:status_pair)
-        unlucky_user = FactoryGirl.create(:status_help)
-
-        create_pair(user, pair1)
-        create_pair(user, pair2)
-
-        sign_in_as(user)
-        visit dashboard_path
-        click_on "I'm Feeling Lucky"
-
-        expect(page).to have_content(lucky_user.user.email)
-        expect(page).to_not have_content(unlucky_user.user.email)
-      end
+      click_on 'Ready To Pair'
+      expect(page).to have_content(pair1.user.email)
+      expect(page).to have_content(pair2.user.email)
+      expect(page).to_not have_content(zone.user.email)
     end
+
+    # scenario 'can filter for feeling lucky' do
+    #   someone = FactoryGirl.create(:user)
+    #   lucky = FactoryGirl.create(:user)
+    #
+    #   sign_in_as(someone)
+    #   click_on "I'm Feeling Lucky"
+    #
+    #   expect(page).to have_content(lucky.email)
+    # end
 
     scenario 'feed displays 5 recent events' do
       FactoryGirl.create_list(:status_pair, 10)

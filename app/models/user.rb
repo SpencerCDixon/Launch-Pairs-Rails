@@ -46,6 +46,7 @@ class User < ActiveRecord::Base
   end
 
   def self.feeling_lucky(current_user)
+    
     potential_people = []
     final_people = []
 
