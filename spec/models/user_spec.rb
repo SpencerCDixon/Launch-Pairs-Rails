@@ -22,12 +22,8 @@ RSpec.describe User, :type => :model do
     let(:project) { FactoryGirl.create(:project) }
     let(:user) { FactoryGirl.create(:user) }
 
-    it 'returns default project if none exists' do
-      expect(user.current_project).to eq('In deep thought')
-    end
-
-    it 'returns latest project if one exists' do
-      expect(project.user.current_project).to eq('Finishing up Launch Pairs')
+    it 'returns latest project ' do
+      expect(project.user.current_project).to eq('In deep thought')
     end
   end
 

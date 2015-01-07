@@ -1,7 +1,7 @@
 @import 'variables';
 
 #footer {
-  height: 15%;
+  height: 170;
   width: 100%;
   background: #4e4e4e;
 }
@@ -38,8 +38,16 @@ ul.footer-nav li a {
   font-family: $h1-font;
   &:hover {
     color: #37becc;
-
   }
 }
 
 
+.page-wrapper {
+  min-height: 100%;
+  margin-bottom: -170px;
+}
+.page-wrapper:after {
+  content: "";
+  display: block;
+  height: 170px;
+}

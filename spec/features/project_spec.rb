@@ -5,7 +5,7 @@ feature 'projects' do
   context 'authorized user' do
 
     scenario 'successfully updates project' do
-      user = FactoryGirl.create(:user)
+      user = FactoryGirl.create(:complete_user)
       sign_in_as(user)
 
       visit user_profile_path(user)

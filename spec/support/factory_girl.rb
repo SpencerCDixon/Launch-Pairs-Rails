@@ -7,10 +7,20 @@ FactoryGirl.define do
     last_name "Smith"
     password 'password'
     password_confirmation 'password'
+
+
+    trait :dependencies do
+      after(:build) do |u|
+        u.projects << FactoryGirl.create(:project, user: u)
+        u.statuses << FactoryGirl.create(:status, user: u)
+      end
+    end
+
+    factory :complete_user, traits: [:dependencies]
   end
 
   factory :project do
-    project 'Finishing up Launch Pairs'
+    project 'In deep thought'
     user
   end
 
@@ -26,6 +36,7 @@ FactoryGirl.define do
   end
 
   factory :status do
+    description "Sleeping"
     user
 
     factory :status_pair do
