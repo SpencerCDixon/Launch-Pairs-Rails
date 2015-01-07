@@ -57,7 +57,7 @@
     <% if current_user == user %>
       <td> Complete </td>
     <% elsif !current_user.paired_with?(user) %>
-      <td> <%= link_to 'Paired?', pairings_path(pair_id: user.id), id: user.id, method: :post %></td>
+      <td> <%= link_to 'Paired?', pairings_path(pair_id: user.id), id: user.id, method: :post, remote: true %></td>
     <% else %>
       <td> Complete </td> 
     <% end -%>
