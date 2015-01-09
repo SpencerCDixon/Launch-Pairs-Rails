@@ -11,7 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'flowdock'
 gem 'dotenv-rails', :groups => [:development, :test]
 
-
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug'

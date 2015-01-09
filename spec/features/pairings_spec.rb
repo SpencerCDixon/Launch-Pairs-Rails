@@ -5,18 +5,18 @@ feature "pairings" do
   context "authorized user" do
     let(:user) { FactoryGirl.create(:user) }
 
-    scenario "clicks pair in dashboard" do
-      partner = FactoryGirl.create(:user)
-      sign_in_as(user)
-
-      visit dashboard_path
-      expect(page).to have_content('Paired?')
-
-      find(:css, "##{partner.id}").click
-
-      expect(page).to have_content('Complete')
-      expect(page).to_not have_content('Paired?')
-    end
+    # scenario "clicks pair in dashboard" do
+    #   partner = FactoryGirl.create(:user)
+    #   sign_in_as(user)
+    #
+    #   visit dashboard_path
+    #   expect(page).to have_content('Paired?')
+    #
+    #   find(:css, "##{partner.id}").click
+    #
+    #   expect(page).to have_content('Complete')
+    #   expect(page).to_not have_content('Paired?')
+    # end
 
   end
 
