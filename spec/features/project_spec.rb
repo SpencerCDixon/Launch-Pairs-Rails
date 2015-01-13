@@ -18,7 +18,7 @@ feature 'projects' do
       expect(page).to have_content('Book reviews in space')
     end
 
-    scenario 'unsuccessful update', focus: true do
+    scenario 'unsuccessful update' do
       sign_in_as(user)
 
       visit user_profile_path(user)
