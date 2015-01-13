@@ -3,3 +3,4 @@ rvm:
   - 2.0.0-p481
 before_script:
   - psql -c 'create database launch_pairs_test;' -U postgres
+  - cp .env.example .env
