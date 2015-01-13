@@ -3,9 +3,9 @@ require 'rails_helper'
 feature 'projects' do
 
   context 'authorized user' do
+    let(:user) { FactoryGirl.create(:complete_user) }
 
     scenario 'successfully updates project' do
-      user = FactoryGirl.create(:complete_user)
       sign_in_as(user)
 
       visit user_profile_path(user)
@@ -16,6 +16,16 @@ feature 'projects' do
 
       expect(page).to have_content('Project updated')
       expect(page).to have_content('Book reviews in space')
+    end
+
+    scenario 'unsuccessful update' do
+      sign_in_as(user)
+
+      visit user_profile_path(user)
+      click_on "Update project"
+
+      expect(page).to have_content("Project can't be blank!")
+
     end
 
   end

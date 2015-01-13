@@ -6,7 +6,8 @@ class ProjectsController < ApplicationController
       redirect_to user_profile_path(current_user), 
         success: "Project updated"
     else
-      render 'profile#show'
+      flash[:warning] = "Project can't be blank!"
+      redirect_to :back
     end
   end
 

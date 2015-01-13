@@ -2,12 +2,8 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(status_params)
     @status.user = current_user
-
-    if @status.save
-      redirect_to user_profile_path(current_user), success: "Status updated"
-    else
-      render 'profile#show'
-    end
+    @status.save
+    redirect_to user_profile_path(current_user), success: "Status updated"
   end
 
   private
