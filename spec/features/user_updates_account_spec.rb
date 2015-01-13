@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'user can update account' do
-  scenario 'provides valid updates', focus: true do
+  scenario 'provides valid updates' do
     user = FactoryGirl.create(:user)
     sign_in_as(user)
 
@@ -15,5 +15,14 @@ feature 'user can update account' do
     click_on "Update"
 
     expect(page).to have_content("Your account has been updated successfully.")
+  end
+
+  scenario 'different users cant update profiles', focus: true do
+    user1 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user)
+    sign_in_as(user1)
+
+    visit user_profile_path(user2)
+    expect(page).to_not have_content("Update Account")
   end
 end
