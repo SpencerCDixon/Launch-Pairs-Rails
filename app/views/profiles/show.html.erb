@@ -1,6 +1,10 @@
 <%= page_title("#{@user.first_name}'s Profile") %>
 <h1><%= @user.first_name %>'s Profile</h1>
 
+<% if current_user == @user %>
+  <%= link_to "Update Account", edit_user_registration_path %>
+<% end -%>
+
 <div class="row">
 
   <div class="large-4 columns">
