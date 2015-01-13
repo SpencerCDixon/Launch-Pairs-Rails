@@ -21,7 +21,7 @@ class DashboardsController < ApplicationController
     flow = Flowdock::Flow.new(:api_token => ENV['LP_FLOW'],
         :source => "LaunchPairs", :from => {:name => current_user.first_name, :address => current_user.email})
 
-    flow.push_to_chat(:content => params[:flow][:question], :external_user_name => current_user.first_name.gsub!(/\s/, ""))
+    flow.push_to_chat(:content => params[:flow][:question], :external_user_name => current_user.first_name)
 
     flash[:success] = "Your question was sent! Check the flow for any answers"
     redirect_to dashboard_path

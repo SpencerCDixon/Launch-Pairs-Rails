@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.flowdock.com/v1/messages/chat/<LP_FLOW>
+    body:
+      encoding: UTF-8
+      string: content=VCR%20is%20a%20cool%20gem&external_user_name=John
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Jan 2015 19:21:35 GMT
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31557600
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Rate-Limit-Limit:
+      - '150'
+      Rate-Limit-Remaining:
+      - '149'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, no-store, no-cache
+      X-Request-Id:
+      - 09fc592f-69c7-4963-922b-c6e6acea96bd
+      X-Runtime:
+      - '0.036043'
+      X-Server-Id:
+      - 51e430377a8dc1dd98b985696e8f69f71277133f
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{}'
+    http_version: 
+  recorded_at: Tue, 13 Jan 2015 19:21:35 GMT
+recorded_with: VCR 2.9.2

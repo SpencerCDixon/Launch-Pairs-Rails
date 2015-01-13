@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'shoulda-matchers'
 require 'capybara/rspec'
 require 'coveralls'
+require 'webmock/rspec'
 Coveralls.wear!('rails')
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
