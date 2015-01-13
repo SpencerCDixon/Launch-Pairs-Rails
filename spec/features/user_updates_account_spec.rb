@@ -17,7 +17,7 @@ feature 'user can update account' do
     expect(page).to have_content("Your account has been updated successfully.")
   end
 
-  scenario 'different users cant update profiles', focus: true do
+  scenario 'different users cant update profiles' do
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
     sign_in_as(user1)
