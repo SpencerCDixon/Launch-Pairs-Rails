@@ -26,10 +26,6 @@ a.pair-navigation {
   color: $alert;
 }
 
-input.button.alert {
-  float: right;
-}
-
 .quick-question {
   overflow: auto;
   width: 100%;
@@ -39,3 +35,6 @@ input.button.alert {
   }
 }
 
+input#ask-question {
+  float: right;
+}
