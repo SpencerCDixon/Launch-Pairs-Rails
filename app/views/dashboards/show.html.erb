@@ -14,21 +14,25 @@
 
 <div class="panel pair-navigation">
   <%= link_to "I'm Feeling Lucky", dashboard_path(query: "lucky"), class: "button alert" %>
-  <%= link_to "Ready To Pair", dashboard_path(query: "pair"), class: "button success" %>
+  <%= link_to "Ready To Pair", dashboard_path,
+    class: "button success", id: "ready-to-pair" %>
   <%= link_to "Open To Help", dashboard_path(query: "help"), class: "button info" %>
   <%= link_to "Everyone", dashboard_path, class: "button secondary" %>
 </div>
 
-<table>
-  <tr>
-    <th>Email</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Status</th>
-    <th>Project</th>
-    <th>Worked Together?</th>
-  </tr>
+<table id="users">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Status</th>
+      <th>Project</th>
+      <th>Worked Together?</th>
+    </tr>
+  <thead>
 
+  <tbody id="users-body">
 <% @users.each do |user| %>
   <tr>
     <td> <%= user.email %></td>
@@ -53,12 +57,14 @@
     <% end -%>
   </tr>
 <% end -%>
+  </tbody>
 </table>
 
 <%= content_for :extra_footer do %>
   <script type="text/javascript">
     $(function(){
       var pairingLink = new PairingLink($('.pairing-link'));
+      var pairFilter = new ReadyToPair($('#ready-to-pair'));
     });
   </script>
 <%- end -%>
