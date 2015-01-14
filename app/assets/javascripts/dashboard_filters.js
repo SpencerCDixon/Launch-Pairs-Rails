@@ -1,19 +1,36 @@
 window.ReadyToPair = function(el){
 
   this.handleSuccess = function(e) {
-       debugger;
-    // find body
     var $table = $('#users-body')
     // clear body
     $table.html('')
-    $(e).each(function() {
+    $(e.users).each(function() {
      var $row = $('<tr>');
      var $email = $('<td>').text(this.email);
      var $firstName = $('<td>').text(this.first_name);
      var $lastName = $('<td>').text(this.last_name);
+     var $currentStatus = $('<td>').text(this.current_status);
+     var $currentProject = $('<td>').text(this.current_project);
 
-     var $user = $row.append($email, $firstName, $lastName);
+     var $pairLink = $('<a>').attr('data-user-id', this.id).
+       text('Paired?').
+       attr('href', '/pairings?pair_id=' + this.id).
+       attr('id', this.id).
+       attr('class', 'pairing-link');
+
+     var $spinner = $('<i>').attr('class', 'fa fa-spinner fa-spin').
+       attr('style', 'display:none');
+
+     var $user = $row.append(
+         $email,
+         $firstName,
+         $lastName,
+         $currentStatus,
+         $currentProject,
+         $pairLink,
+         $spinner);
      $table.append($user)
+     var pairingLink = new PairingLink($('.pairing-link'));
     });
   }
 

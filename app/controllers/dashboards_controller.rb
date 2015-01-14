@@ -17,7 +17,7 @@ class DashboardsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @users }
+      format.json { render :filtered_users }
     end
   end
 
