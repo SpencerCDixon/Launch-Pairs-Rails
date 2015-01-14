@@ -3,34 +3,16 @@
 
 <div class="row">
   <div class="large-6 columns">
-    <h2>Newsfeed</h2>
-    <div class="panel newsfeed">
-      <% @feed.each do |event| %>
-        <% if event.is_a?(Status) %>
-          <p> <span class="user-name"><%= event.user.first_name %></span>
-          just updated status to:<span class="update"> <%= event.description %></span> </p>
-        <% else %>
-          <p><span class="user-name"><%= event.user.first_name %></span>
-          just updated project to:<span class="update"> <%= event.project %></span> </p>
-        <% end -%>
-      <% end -%>
-    </div>
+    <%= render 'dashboards/newsfeed' %>
   </div>
 
   <div class="large-6 columns">
-      <h2>Quick Question</h2>
-    <div class="panel quick-question">
-      <p>Ask a quick question to your peers for clarification.  Sometimes you just need a quick sanity check ;)</p>
-      <%= form_for 'flow', url: { controller: :dashboards, action: :send_flow } do |f|  %>
-        <%= f.text_area  :question %>
-        <%= f.submit "Ask Your Question", class: "button alert" %>
-      <% end -%>
-    </div>
+    <%= render 'dashboards/question' %>
   </div>
 </div>
 
 
-<div class="panel callout pair-navigation">
+<div class="panel pair-navigation">
   <%= link_to "I'm Feeling Lucky", dashboard_path(query: "lucky"), class: "button alert" %>
   <%= link_to "Ready To Pair", dashboard_path(query: "pair"), class: "button success" %>
   <%= link_to "Open To Help", dashboard_path(query: "help"), class: "button info" %>

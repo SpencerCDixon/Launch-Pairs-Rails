@@ -1,0 +1,13 @@
+<%- flash.each do |key, value| -%>
+  <% if key == "notice" %>
+    <div data-alert class="alert-box info">
+      <%= value %>
+       <a href="#" class="close">&times;</a>
+    </div>
+  <% else %>
+    <div data-alert class="alert-box <%= key %>">
+      <%= value %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% end -%>
+<%- end -%>

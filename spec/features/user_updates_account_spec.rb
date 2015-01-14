@@ -5,8 +5,7 @@ feature 'user can update account' do
     user = FactoryGirl.create(:user)
     sign_in_as(user)
 
-    visit user_profile_path(user)
-    click_on "Update Account"
+    visit edit_user_registration_path
 
     fill_in "First name", with: "Spencer"
     fill_in "Last name", with: "Dixon"
