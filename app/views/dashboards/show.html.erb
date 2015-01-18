@@ -20,7 +20,7 @@
   <%= link_to "Everyone", dashboard_path, class: "button secondary", id: "everyone" %>
 </div>
 
-<%= react_component('PairingList', @user_json) %>
+<%= react_component('PairingBox', @users_json) %>
 
 <table id="users">
   <thead>
@@ -61,13 +61,3 @@
 <% end -%>
   </tbody>
 </table>
-
-<%= content_for :extra_footer do %>
-  <script type="text/javascript">
-    $(function(){
-      var pairingLink = new PairingLink($('.pairing-link'));
-      var pairFilter = new ReadyToPair($('#ready-to-pair'));
-      var everyoneFilter = new Everyone($('#everyone'));
-    });
-  </script>
-<%- end -%>
