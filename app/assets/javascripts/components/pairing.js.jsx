@@ -1,4 +1,4 @@
-var PotentialPairing = React.createClass({
+var Pairing = React.createClass({
   render: function() {
     return (
       <tr>

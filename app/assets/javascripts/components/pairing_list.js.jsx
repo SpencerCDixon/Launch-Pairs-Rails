@@ -1,8 +1,12 @@
-var PairingTable = React.createClass({
+var PairingList = React.createClass({
+  getInitialState: function() {
+    return {users: []};
+  },
+
   render: function() {
     var users = this.props.users.map(function (user) {
       return (
-        <PotentialPairing user={user}/>
+        <Pairing user={user}/>
       );
     });
     return (
