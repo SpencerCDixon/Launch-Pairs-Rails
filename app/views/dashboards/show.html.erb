@@ -17,7 +17,7 @@
   <%= link_to "Ready To Pair", dashboard_path,
     class: "button success", id: "ready-to-pair" %>
   <%= link_to "Open To Help", dashboard_path(query: "help"), class: "button info" %>
-  <%= link_to "Everyone", dashboard_path, class: "button secondary" %>
+  <%= link_to "Everyone", dashboard_path, class: "button secondary", id: "everyone" %>
 </div>
 
 <table id="users">
@@ -65,6 +65,7 @@
     $(function(){
       var pairingLink = new PairingLink($('.pairing-link'));
       var pairFilter = new ReadyToPair($('#ready-to-pair'));
+      var everyoneFilter = new Everyone($('#everyone'));
     });
   </script>
 <%- end -%>
