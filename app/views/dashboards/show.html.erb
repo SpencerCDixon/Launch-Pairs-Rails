@@ -20,6 +20,8 @@
   <%= link_to "Everyone", dashboard_path, class: "button secondary", id: "everyone" %>
 </div>
 
+<%= react_component('PairingTable', @user_json) %>
+
 <table id="users">
   <thead>
     <tr>
