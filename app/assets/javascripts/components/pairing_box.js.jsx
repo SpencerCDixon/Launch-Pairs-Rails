@@ -19,6 +19,14 @@ var PairingBox = React.createClass({
     this.loadUsersFromServer({query: 'pair'});
   },
 
+  handleHelpSortClicked: function() {
+    this.loadUsersFromServer({query: 'help'});
+  },
+
+  handleEveryoneSortClicked: function() {
+    this.loadUsersFromServer({query: ''});
+  },
+
   loadUsersFromServer: function(params) {
     $.ajax({
       url: '/dashboard',
@@ -36,8 +44,12 @@ var PairingBox = React.createClass({
   render: function() {
     return (
       <div>
-        <button onClick={this.handleLuckySortClicked}>Lucky</button>
-        <button onClick={this.handlePairSortClicked}>Ready To Pair</button>
+        <div className="panel pair-navigation">
+          <button className="alert button" onClick={this.handleLuckySortClicked}>I'm Feeling Lucky</button>
+          <button className="success button" onClick={this.handlePairSortClicked}>Ready To Pair</button>
+          <button className="info button" onClick={this.handleHelpSortClicked}>Open To Help</button>
+          <button className="secondary button" onClick={this.handleEveryoneSortClicked}>Everyone</button>
+        </div>
 
         <PairingList users={this.state.users}
           onPairingLinkClicked={this.handlePairingLinkClicked} />

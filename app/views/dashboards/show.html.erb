@@ -11,14 +11,4 @@
   </div>
 </div>
 
-
-<div class="panel pair-navigation">
-  <%= link_to "I'm Feeling Lucky", dashboard_path(query: "lucky"), class: "button alert" %>
-  <%= link_to "Ready To Pair", dashboard_path,
-    class: "button success", id: "ready-to-pair" %>
-  <%= link_to "Open To Help", dashboard_path(query: "help"), class: "button info" %>
-  <%= link_to "Everyone", dashboard_path, class: "button secondary", id: "everyone" %>
-</div>
-
 <%= react_component('PairingBox', @users_json) %>
-
