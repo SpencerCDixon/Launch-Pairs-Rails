@@ -3,7 +3,6 @@ window.PairingLink = function(el){
     var $link = $('a[data-user-id="' + pairRequest.pair_id + '"]')
     $link.siblings('.fa-spinner').hide();
     $link.replaceWith('Complete');
-
   };
 
   this.handleFailedPairRequest = function(jqXHR, textStatus){
@@ -27,5 +26,6 @@ window.PairingLink = function(el){
   };
   _.bindAll(this, 'handlePairRequest');
 
+  console.log("pairs");
   $(el).on('click', this.handlePairRequest);
 };
