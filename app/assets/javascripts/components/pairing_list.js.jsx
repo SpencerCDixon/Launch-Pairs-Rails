@@ -1,14 +1,12 @@
 var PairingList = React.createClass({
-  getInitialState: function() {
-    return {users: []};
-  },
-
   render: function() {
+    var _this = this;
     var users = this.props.users.map(function (user) {
       return (
-        <Pairing user={user}/>
+        <Pairing user={user} onPairingLinkClicked={_this.props.onPairingLinkClicked} />
       );
     });
+
     return (
         <table>
           <thead>
@@ -18,6 +16,7 @@ var PairingList = React.createClass({
               <th>Last Name</th>
               <th>Status</th>
               <th>Project</th>
+              <th>Worked Together?</th>
             </tr>
           </thead>
           <tbody>
