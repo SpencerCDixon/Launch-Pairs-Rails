@@ -7,8 +7,8 @@ class StudentRegistration
     @user = user
   end
 
-  def create_dependencies(status = DEFAULT_STATUS, project = DEFAULT_PROJECT)
-    @user.statuses.create!(description: status)
-    @user.projects.create!(project: project)
+  def create_dependencies
+    @user.statuses.create!(description: DEFAULT_STATUS)
+    @user.projects.create!(project: DEFAULT_PROJECT)
   end
 end
