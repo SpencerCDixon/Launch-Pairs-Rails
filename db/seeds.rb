@@ -8,6 +8,7 @@
 #
 #
 
+
 20.times do |n|
  u = User.create(email: "user#{n}@email.com", password: '12345678', 
               password_confirmation: '12345678',
