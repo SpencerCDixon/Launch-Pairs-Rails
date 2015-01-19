@@ -11,58 +11,14 @@
 </head>
 <body>
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <a href="/"><div id="logo"></div></a>
-      </li>
-    </ul>
-
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <li><%= link_to 'Dashboard', dashboard_path %></li>
-          <li><%= link_to 'Profile', user_profile_path(current_user) %></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
-      </ul>
-    </section>
-  </nav>
+  <%= render 'layouts/nav' %>
 
   <div class="row page-wrapper">
-    <%- flash.each do |key, value| -%>
-      <% if key == "notice" %>
-        <div class="alert-box info">
-          <%= value %>
-        </div>
-      <% else %>
-        <div class="alert-box <%= key %>">
-          <%= value %>
-        </div>
-      <% end -%>
-    <%- end -%>
-
+    <%= render 'layouts/flashes' %>
     <%= yield %>
   </div>
 
-  <footer id="footer">
-    <div class="row">
-      <div class="large-8 columns">
-        <ul class="footer-nav">
-          <li><a href="#" target="_blank">Submit Issues & Bugs</a></li>
-          <li><a href="#" target="_blank">Contribute </a></li>
-          <li><a href="#" target="_blank">Request Features</a></li>
-        </ul>
-      </div>
-      <div class="large-4 columns">
-        <p id="copyright"> &copy; Copyright <%= Time.now.year %></p>
-        <%= image_tag ('la-logo.png'), class: "footer-logo" %>
-      </div>
-    </div>
-  </footer>
+  <%= render 'layouts/footer' %>
 
   <%= javascript_include_tag 'application' %>
   <%= javascript_tag do %>

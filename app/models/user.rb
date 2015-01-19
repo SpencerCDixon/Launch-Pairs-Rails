@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   def self.ready_to_pair
     users = []
-    all.each do |user|
+    includes(:statuses).each do |user|
       users << user  if user.current_status == "Ready To Pair"
     end
     users

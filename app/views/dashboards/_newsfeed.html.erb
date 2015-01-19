@@ -1,0 +1,12 @@
+<h2>Newsfeed</h2>
+<div class="panel newsfeed">
+  <% @feed.each do |event| %>
+    <% if event.is_a?(Status) %>
+      <p> <span class="user-name"><%= event.user.first_name %></span>
+      just updated status to:<span class="update"> <%= event.description %></span> </p>
+    <% else %>
+      <p><span class="user-name"><%= event.user.first_name %></span>
+      just updated project to:<span class="update"> <%= event.project %></span> </p>
+    <% end -%>
+  <% end -%>
+</div>

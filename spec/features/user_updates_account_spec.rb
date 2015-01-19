@@ -5,8 +5,7 @@ feature 'user can update account' do
     user = FactoryGirl.create(:user)
     sign_in_as(user)
 
-    visit user_profile_path(user)
-    click_on "Update Account"
+    visit edit_user_registration_path
 
     fill_in "First name", with: "Spencer"
     fill_in "Last name", with: "Dixon"
@@ -15,14 +14,5 @@ feature 'user can update account' do
     click_on "Update"
 
     expect(page).to have_content("Your account has been updated successfully.")
-  end
-
-  scenario 'different users cant update profiles' do
-    user1 = FactoryGirl.create(:user)
-    user2 = FactoryGirl.create(:user)
-    sign_in_as(user1)
-
-    visit user_profile_path(user2)
-    expect(page).to_not have_content("Update Account")
   end
 end

@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   before_action :authenticate
+  respond_to :html, :json, only: :show
 
   def show
     if params[:query] == "pair"
@@ -11,9 +12,14 @@ class DashboardsController < ApplicationController
     else
       @users = User.all.limit(20)
     end
+    @users_json = ActiveModel::ArraySerializer.new(@users, root: :users, scope: current_user).to_json
 
-    # needs to be refactored into it's own model
     @feed = Dashboard.display_feed
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @users_json }
+    end
   end
 
   # Don't know how to properly test this feature, ask for dans help, should also be refactored into it's own rest model

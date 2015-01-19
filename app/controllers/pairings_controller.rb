@@ -10,7 +10,10 @@ class PairingsController < ApplicationController
         format.json { render json: @pairing }
       end
     else
-      redirect_to root_path
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.json { render json: @pairing.errors, status: 422 }
+      end
     end
   end
 end

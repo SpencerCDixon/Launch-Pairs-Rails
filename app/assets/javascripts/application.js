@@ -10,10 +10,14 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require modernizr
 //= require jquery
 //= require jquery_ujs
 //= require foundation
 //= require underscore
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
