@@ -12,12 +12,13 @@ class DashboardsController < ApplicationController
     else
       @users = User.all.limit(20)
     end
+    @users_json = ActiveModel::ArraySerializer.new(@users, root: :users, scope: current_user).to_json
 
     @feed = Dashboard.display_feed
 
     respond_to do |format|
       format.html
-      format.json { render :filtered_users }
+      format.json { render json: @users_json }
     end
   end
 

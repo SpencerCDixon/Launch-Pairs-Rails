@@ -12,6 +12,10 @@ gem 'flowdock'
 gem 'devise'
 gem 'foundation-rails'
 gem 'font-awesome-sass'
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem "active_model_serializers", "~> 0.8.3"
+
+
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
