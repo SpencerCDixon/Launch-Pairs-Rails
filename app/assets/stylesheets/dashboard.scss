@@ -38,3 +38,12 @@ a.pair-navigation {
 input#ask-question {
   float: right;
 }
+
+.button.pair-link {
+  background: $alert;
+  line-height: .1;
+  margin: 0;
+  &:hover {
+    background: black;
+  }
+}

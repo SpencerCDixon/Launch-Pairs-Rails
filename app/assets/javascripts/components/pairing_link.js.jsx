@@ -27,7 +27,7 @@ var PairingLink = React.createClass({
       content = "Completed";
     } else {
       content = (
-        <button className="button" onClick={this.handleClick}>
+        <button className="button pair-link vert-align" onClick={this.handleClick}>
           Pair
         </button>
       );
